@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+    id 'java-gradle-plugin'
+    id 'com.github.johnrengelman.shadow' version '7.0.0'
+}
+
+group 'me.rancraftplayz.pacifist'
+version '0.1'
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    shadowMe
+}
+
+dependencies {
+    implementation gradleApi()
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    shadowMe fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+shadowJar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    configurations = [project.configurations.getByName("shadowMe")]
+}
+
+gradlePlugin {
+    plugins {
+        pacifistRemapper {
+            id = "me.rancraftplayz.pacifist.remapper"
+            implementationClass = "me.rancraftplayz.pacifist.remapper.RemapperPlugin"
+        }
+    }
+}

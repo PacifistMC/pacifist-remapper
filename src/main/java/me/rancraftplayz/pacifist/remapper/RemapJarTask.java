@@ -1,0 +1,42 @@
+package me.rancraftplayz.pacifist.remapper;
+
+import me.rancraftplayz.mappingsconverter.MojangSpigotRemapper;
+import org.gradle.api.DefaultTask;
+import org.gradle.api.tasks.TaskAction;
+import org.gradle.api.tasks.bundling.AbstractArchiveTask;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+
+public class RemapJarTask extends DefaultTask {
+    @TaskAction
+    void remapJarTask() throws IOException {
+        File inputJar = ((AbstractArchiveTask) getProject().getTasks().getByName("jar")).getArchiveFile().get().getAsFile();
+
+        if (!inputJar.exists()) {
+            System.out.println("Input jar not found!");
+            return;
+        }
+
+        Set<File> libFiles = getProject().getConfigurations().named("remapLib").get().getFiles();
+        List<Path> libs = new ArrayList<>();
+
+        for (File file : libFiles) {
+            libs.add(file.toPath());
+        }
+
+        Optional<File> proguardMappings = getProject().getConfigurations().named("mojangProguardMappings").get().getFiles().stream().findFirst();
+        Optional<File> csrgMappings = getProject().getConfigurations().named("spigotCsrgMappings").get().getFiles().stream().findFirst();
+
+        if (proguardMappings.isPresent() && csrgMappings.isPresent()) {
+            MojangSpigotRemapper.remap(inputJar.toPath(), proguardMappings.get().toPath(), csrgMappings.get().toPath(), libs);
+        } else {
+            System.out.println("Mappings not found!");
+        }
+    }
+}
