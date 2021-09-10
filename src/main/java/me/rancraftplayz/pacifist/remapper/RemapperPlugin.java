@@ -10,6 +10,10 @@ public class RemapperPlugin implements Plugin<Project> {
         project.getConfigurations().create("spigotCsrgMappings");
         project.getConfigurations().create("remapLib");
 
+        project.getConfigurations().create("accessWidener");
+        project.getConfigurations().create("accessWidenerLib");
+
         project.getTasks().create("remapJar", RemapJarTask.class);
+        project.getTasks().create("applyAccessWidener", ApplyAccessWidenerTask.class);
     }
 }
