@@ -35,6 +35,9 @@ The **spigotCsrgMappings** is the spigot mappings
 
 The **remapLib** is where it'll remap from
 
+To remap the jar you'll need to run the task **remapJar**
+You can make this task depend on shadowJar (or something simillar) to automaticly create & remap the jar
+
 ## Access Wideners
 We support three namespaces (mojang, spigot, official)
 #
