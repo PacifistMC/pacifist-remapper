@@ -7,7 +7,7 @@ Well uhm I don't really know how to publish a gradle plugin/dependency (psst som
 So for now you'll have to be scuffed just like me!
 
 You'll first need to [download](https://github.com/PacifistMC/pacifist-remapper/releases) this
-then in your peject make a folder named libs and paste the jar file in that
+then in your project make a folder named libs and paste the jar file in that
 and then add this to your build.gradle file without breaking the entire universe
 ```groovy
 import me.rancraftplayz.pacifist.remapper.RemapperPlugin
