@@ -1,7 +1,9 @@
 Make an issue if you are having troubles!
+
 We won't bite you for making useless issues
 ## How to download this?
 Well uhm I don't really know how to publish a gradle plugin/dependency (psst someone publish this for me and then make an issue letting me know)
+
 So for now you'll have to be scuffed just like me!
 
 You'll first need to [download](https://github.com/PacifistMC/pacifist-remapper/releases) this
@@ -28,7 +30,9 @@ dependencies {
 }
 ```
 The **mojangProguardMappings** is the mojang mappings
+
 The **spigotCsrgMappings** is the spigot mappings
+
 The **remapLib** is where it'll remap from
 
 ## Access Wideners
@@ -40,6 +44,7 @@ dependencies {
 }
 ```
 The **accessWidener** configuration is the path .accesswidener file
+
 The **accessWidenerLib** is where will it apply the access wieners
 
 To actually apply the accsss wideners you need to run the task **applyAccessWidener**
