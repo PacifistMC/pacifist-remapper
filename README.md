@@ -37,6 +37,7 @@ The **remapLib** is where it'll remap from
 
 ## Access Wideners
 We support three namespaces (mojang, spigot, official)
+#
 ```groovy
 dependencies {
     // Note that we don't support multiple access wideners yet
