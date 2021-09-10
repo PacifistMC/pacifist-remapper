@@ -47,7 +47,7 @@ dependencies {
 ```
 The **accessWidener** configuration is the path .accesswidener file
 
-The **accessWidenerLib** is where will it apply the access wieners
+The **accessWidenerLib** is where will it apply the access wideners
 
 To actually apply the accsss wideners you need to run the task **applyAccessWidener**
 
