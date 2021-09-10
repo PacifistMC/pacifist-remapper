@@ -60,7 +60,7 @@ To actually apply the accsss wideners you need to run the task **applyAccessWide
   The **-obf** must be added after the name of the access widener because the actual example.accesswidener is not an access widener that Ignite understands! (unless if you're making it in spigot mappings)
   
   ## ShadowJar configuration (Required for now)
-  If you're using shadow or something simillar then you'll need to set the path to where the original jar task makes it's jar
+  If you're using shadow or something simillar then you'll need to set the path & name to where the original jar task makes it's jar
   If you're using default build stuff then you can add this to your shadowJar
   ```groovy
   shadowJar {
