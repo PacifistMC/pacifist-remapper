@@ -17,8 +17,6 @@ import java.util.Set;
 public class ApplyAccessWidenerTask extends DefaultTask {
     @TaskAction
     void applyAccessWidenerTask() throws IOException {
-        File inputJar = ((AbstractArchiveTask) getProject().getTasks().getByName("jar")).getArchiveFile().get().getAsFile();
-
         Set<File> alibFiles = getProject().getConfigurations().named("accessWidenerLib").get().getFiles();
         List<Path> alibs = new ArrayList<>();
 
@@ -26,8 +24,7 @@ public class ApplyAccessWidenerTask extends DefaultTask {
             alibs.add(file.toPath());
         }
 
-        Optional<File> proguardMappings = getProject().getConfigurations().named("mojangProguardMappings").get().getFiles().stream().findFirst();
-        Optional<File> csrgMappings = getProject().getConfigurations().named("spigotCsrgMappings").get().getFiles().stream().findFirst();
+        String mcVersion = RemapperPlugin.extension.getVersion();
 
         Optional<File> accessWidener = getProject().getConfigurations().named("accessWidener").get().getFiles().stream().findFirst();
 
@@ -36,8 +33,8 @@ public class ApplyAccessWidenerTask extends DefaultTask {
             return;
         }
 
-        if (proguardMappings.isPresent() && csrgMappings.isPresent()) {
-            MojangSpigotAccessWidenerRemapper.remap(accessWidener.get().toPath(), proguardMappings.get().toPath(), csrgMappings.get().toPath(), alibs, inputJar.toPath());
+        if (!mcVersion.isEmpty()) {
+            MojangSpigotAccessWidenerRemapper.remap(accessWidener.get().toPath(), RemapperPlugin.mappingsDir, mcVersion, alibs);
         } else {
             System.out.println("Mappings not found! Applying access wideners without mappings");
             applyAccessWidenersWithoutMaps(accessWidener.get(), alibs);

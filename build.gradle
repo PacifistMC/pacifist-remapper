@@ -5,7 +5,7 @@ plugins {
 }
 
 group 'me.rancraftplayz.pacifist'
-version '0.1'
+version '0.2'
 
 repositories {
     mavenCentral()
@@ -24,6 +24,7 @@ dependencies {
 shadowJar {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     configurations = [project.configurations.getByName("shadowMe")]
+    archiveClassifier.set(null)
 }
 
 gradlePlugin {

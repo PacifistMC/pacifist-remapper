@@ -37,8 +37,7 @@ public class RemapJarTask extends DefaultTask {
             alibs.add(file.toPath());
         }
 
-        Optional<File> proguardMappings = getProject().getConfigurations().named("mojangProguardMappings").get().getFiles().stream().findFirst();
-        Optional<File> csrgMappings = getProject().getConfigurations().named("spigotCsrgMappings").get().getFiles().stream().findFirst();
+        String mcVersion = RemapperPlugin.extension.getVersion();
 
         Optional<File> accessWidener = getProject().getConfigurations().named("accessWidener").get().getFiles().stream().findFirst();
 
@@ -47,8 +46,8 @@ public class RemapJarTask extends DefaultTask {
             accessWidenerPath = accessWidener.get().toPath();
         }
 
-        if (proguardMappings.isPresent() && csrgMappings.isPresent()) {
-            MojangSpigotRemapper.remapAll(inputJar.toPath(), proguardMappings.get().toPath(), csrgMappings.get().toPath(), libs, accessWidenerPath, alibs);
+        if (!mcVersion.isEmpty()) {
+            MojangSpigotRemapper.remapAll(inputJar.toPath(), RemapperPlugin.mappingsDir, mcVersion, libs, accessWidenerPath, alibs);
         } else {
             System.out.println("Mappings not found!");
         }
