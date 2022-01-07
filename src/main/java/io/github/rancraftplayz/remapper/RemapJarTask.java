@@ -1,4 +1,4 @@
-package me.rancraftplayz.pacifist.remapper;
+package io.github.rancraftplayz.remapper;
 
 import me.rancraftplayz.mappingsconverter.MojangSpigotRemapper;
 import org.gradle.api.DefaultTask;

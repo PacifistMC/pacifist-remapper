@@ -2,9 +2,11 @@ plugins {
     id 'java'
     id 'java-gradle-plugin'
     id 'com.github.johnrengelman.shadow' version '7.0.0'
+    id 'maven-publish'
+    id 'com.gradle.plugin-publish' version '0.16.0'
 }
 
-group 'me.rancraftplayz.pacifist'
+group 'io.github.rancraftplayz.remapper'
 version '0.2'
 
 repositories {
@@ -30,8 +32,26 @@ shadowJar {
 gradlePlugin {
     plugins {
         pacifistRemapper {
-            id = "me.rancraftplayz.pacifist.remapper"
-            implementationClass = "me.rancraftplayz.pacifist.remapper.RemapperPlugin"
+            id = "io.github.rancraftplayz.remapper"
+            displayName = 'Pacifist Remapper'
+            description = 'This plugin automates the remapping process for spigot'
+            implementationClass = "io.github.rancraftplayz.remapper.RemapperPlugin"
+        }
+    }
+}
+
+
+pluginBundle {
+    website = 'https://github.com/PacifistMC'
+    vcsUrl = 'https://github.com/PacifistMC/pacifist-remapper'
+    tags = ['spigot', 'remapping', 'ignite-launcher', 'pacifistmc']
+}
+
+publishing {
+    repositories {
+        maven {
+            name = 'localPluginRepository'
+            url = '../local-plugin-repository'
         }
     }
 }

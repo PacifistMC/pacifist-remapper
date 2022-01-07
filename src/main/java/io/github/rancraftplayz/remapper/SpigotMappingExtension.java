@@ -1,4 +1,4 @@
-package me.rancraftplayz.pacifist.remapper;
+package io.github.rancraftplayz.remapper;
 
 public class SpigotMappingExtension {
     private String version;

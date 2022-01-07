@@ -1,4 +1,4 @@
-package me.rancraftplayz.pacifist.remapper;
+package io.github.rancraftplayz.remapper;
 
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
