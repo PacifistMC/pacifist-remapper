@@ -1,7 +1,7 @@
 Make an issue if you are having troubles!
 ___
 ## Applying the plugin
-####Maybe take a look at [IgniteModTemplate](https://github.com/PacifistMC/IgniteModTemplate)
+#### Maybe take a look at [IgniteModTemplate](https://github.com/PacifistMC/IgniteModTemplate)
 Thanks to Hidin for helping me publish this plugin!
 #### Groovy
 Using the [plugins DSL](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block):
