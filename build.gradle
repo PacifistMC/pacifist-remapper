@@ -7,7 +7,7 @@ plugins {
 }
 
 group 'io.github.rancraftplayz.remapper'
-version '0.2'
+version '1.0.0'
 
 repositories {
     mavenCentral()
