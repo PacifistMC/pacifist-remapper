@@ -8,7 +8,7 @@ Using the [plugins DSL](https://docs.gradle.org/current/userguide/plugins.html#s
 
 ```groovy
 plugins {
-  id "io.github.rancraftplayz.remapper" version "1.0.0"
+  id "io.github.rancraftplayz.remapper" version "1.0.1"
 }
 ```
 
@@ -23,7 +23,7 @@ buildscript {
     }
   }
   dependencies {
-    classpath "io.github.rancraftplayz.remapper:pacifist-remapper:1.0.0"
+    classpath "io.github.rancraftplayz.remapper:pacifist-remapper:1.0.1"
   }
 }
 
@@ -37,7 +37,7 @@ Using the [plugins DSL](https://docs.gradle.org/current/userguide/plugins.html#s
 
 ```kotlin
 plugins {
-  id("io.github.rancraftplayz.remapper") version "1.0.0"
+  id("io.github.rancraftplayz.remapper") version "1.0.1"
 }
 ```
 
@@ -52,7 +52,7 @@ buildscript {
     }
   }
   dependencies {
-    classpath("io.github.rancraftplayz.remapper:pacifist-remapper:1.0.0")
+    classpath("io.github.rancraftplayz.remapper:pacifist-remapper:1.0.1")
   }
 }
 
