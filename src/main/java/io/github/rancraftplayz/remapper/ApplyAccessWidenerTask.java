@@ -28,7 +28,7 @@ public class ApplyAccessWidenerTask extends DefaultTask {
 
         Optional<File> accessWidener = getProject().getConfigurations().named("accessWidener").get().getFiles().stream().findFirst();
 
-        if (accessWidener.isEmpty()) {
+        if (!accessWidener.isPresent()) {
             System.out.println("Access Widener not found!");
             return;
         }
